@@ -169,7 +169,7 @@ public class AudioReceiver : MonoBehaviour
         // ray hit bounceable surface
         if(Physics.Raycast(origin, dir, out hit, dist, bounceLayers))
         {
-            Debug.DrawLine(origin, hit.point, Color.white, 2f, false);
+            //Debug.DrawLine(origin, hit.point, Color.white, 2f, false);
             totalBouncesFromCast++;
 
             float distToHit = Vector3.Distance(origin, hit.point);
@@ -186,7 +186,7 @@ public class AudioReceiver : MonoBehaviour
             }
             else
             {
-                Debug.DrawLine(origin, hit.point, Color.red, 2f, false);
+                //Debug.DrawLine(origin, hit.point, Color.red, 2f, false);
                 // no bounces or no dist
             }
         }
@@ -225,7 +225,7 @@ public class AudioReceiver : MonoBehaviour
                     if(hit.transform.gameObject == source || hit.transform.IsChildOf(source.transform))
                     {
                         // hit audio source
-                        Debug.DrawLine(newPos, source.transform.position, Color.green, 2f, false);
+                        //Debug.DrawLine(newPos, source.transform.position, Color.green, 2f, false);
                         audioSourceLOSCount[source] ++;
                         return true;
                     }
@@ -259,7 +259,7 @@ public class AudioReceiver : MonoBehaviour
             {
                 if(hit.transform == transform || hit.transform.IsChildOf(transform)) // if hit this
                 {
-                    Debug.DrawLine(newPos, transform.position, Color.blue, 2f, false);
+                    //Debug.DrawLine(newPos, transform.position, Color.blue, 2f, false);
                     echoRayCount++;
                     totalDistanceOfEchoRays += Vector3.Distance(newPos, transform.position);
                     return true;

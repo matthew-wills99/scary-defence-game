@@ -11,12 +11,13 @@ using UnityEngine;
 #|_|   |_____/_/   \_\_| |_____|_| \_(_)___|___/#
 #################################################
 
-This script is responsible for managing the player, their movement
+This script is responsible for managing the player, their movement, and their actions
 */
 public class Player : MonoBehaviour
 {
-    public float speed = 5f;
-    public float gravity = -9.81f;
+    [SerializeField] public float speed = 5f;
+    [SerializeField] public float gravity = -9.81f;
+    [SerializeField] public float reachLength; // for 
 
     private CharacterController controller;
     private Vector3 velocity;
@@ -29,6 +30,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         Movement();
+        Interact();
     }
 
     private void Movement()
@@ -46,5 +48,21 @@ public class Player : MonoBehaviour
         }
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+    }
+
+    private void Interact()
+    {
+        Debug.DrawLine(transform.position, transform.position + transform.forward * reachLength, Color.red, 5f);
+        Ray ray = new Ray(transform.position, transform.forward);
+        if(Physics.Raycast(ray, out RaycastHit hit, reachLength))
+        {
+            if(hit.collider.CompareTag("Interactive"))
+            {
+                if(hit.collider.TryGetComponent<InteractiveObject>(out var interactiveObject))
+                {
+                    interactiveObject.Interact();
+                }
+            }
+        }
     }
 }
