@@ -72719,12 +72719,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1965982224}
+  - component: {fileID: 1965982225}
   - component: {fileID: 1965982223}
   - component: {fileID: 1965982222}
   - component: {fileID: 1965982221}
   - component: {fileID: 1965982220}
   - component: {fileID: 1965982219}
-  - component: {fileID: 1965982225}
   m_Layer: 0
   m_Name: Door
   m_TagString: Interactive
@@ -73196,7 +73196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultOpenState: 0
-  openRotation: 90
+  openRotation: -90
   timeToOpen: 2
   doorPivot: {fileID: 824195828}
   cooldownTime: 2
@@ -81021,6 +81021,10 @@ PrefabInstance:
     - target: {fileID: 6946615413479978395, guid: 0bef8002b6015a340b74da0a012d9d17, type: 3}
       propertyPath: m_Name
       value: Toilet
+      objectReference: {fileID: 0}
+    - target: {fileID: 6946615413479978395, guid: 0bef8002b6015a340b74da0a012d9d17, type: 3}
+      propertyPath: m_TagString
+      value: Interactive
       objectReference: {fileID: 0}
     - target: {fileID: 6966013797272673933, guid: 0bef8002b6015a340b74da0a012d9d17, type: 3}
       propertyPath: m_Mesh
