@@ -34,7 +34,6 @@ public class Door : InteractiveObject
         }
 
         isOpen = !isOpen; // flip open state
-        
         if(isOpen)
         {
             Debug.Log($"Opening Door");
